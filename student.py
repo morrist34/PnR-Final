@@ -81,12 +81,18 @@ class GoPiggy(pigo.Pigo):
         for x in range(4):
             self.servo(45)
             self.encR(30)
+            self.servo(45)
             self.encL(30)
+            self.servo(30)
             self.encR(40)
+            self.servo(30)
             self.encL(40)
+            self.servo(30)
             self.encF(30)
+            self.servo(30)
             self.encB(30)
             self.encR(30)
+            self.servo(30)
             self.encR(30)
             self.servo(30)
 
