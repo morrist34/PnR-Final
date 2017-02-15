@@ -115,7 +115,12 @@ class Pigo(object):
         print('Moving '+str((enc/18))+ ' rotations(s) backwards')
         enc_tgt(1, 1, enc)
         bwd()
-        time.sleep(1 * (enc / 18))
+        time.sleep(1 * (enc / 18)
+
+    def servo(self, val):
+            print('Moving servo to ' + str(val) + 'deg')
+            servo(val)
+            time.sleep(.1)
 
     # DUMP ALL VALUES IN THE SCAN ARRAY
     def flush_scan(self):
