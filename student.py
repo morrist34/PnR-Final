@@ -78,7 +78,7 @@ class GoPiggy(pigo.Pigo):
 
     def chacha(self):
         print ('chacha')
-        for x in range(1):
+        for x in range(2):
             self.set_speed(250, 250)
             self.servo(0)
             self.servo(45)
