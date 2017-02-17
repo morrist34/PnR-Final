@@ -102,7 +102,7 @@ class GoPiggy(pigo.Pigo):
         def sprinkler(self)
             print (sprinkler)
             for x in range(1):
-                self.servo (30)
+                self.servo (140)
 
     ########################
     ### MAIN LOGIC LOOP - the core algorithm of my navigation
