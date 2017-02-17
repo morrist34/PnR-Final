@@ -100,15 +100,15 @@ class GoPiggy(pigo.Pigo):
             self.encR(20)
             self.servo(30)
 
-        def sprinkler(self):
-            print ('sprinkler')
-            for x in range(125, 225, 25):
-                self.set_speed(x, x)
-                self.servo(140)
-                self.servo(40)
-                self.servo(90)
-                self.encR(20)
-                self.encL(20)
+    def sprinkler(self):
+        print ('sprinkler')
+        for x in range(125, 225, 25):
+            self.set_speed(x, x)
+            self.servo(140)
+            self.servo(40)
+            self.servo(90)
+            self.encR(20)
+            self.encL(20)
 
     ########################
     ### MAIN LOGIC LOOP - the core algorithm of my navigation
