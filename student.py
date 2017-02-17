@@ -99,9 +99,9 @@ class GoPiggy(pigo.Pigo):
             self.encR(20)
             self.servo(30)
 
-        def sprinkler(self)
+        def sprinkler(self):
             print (sprinkler)
-            for x in range(1):
+            for x in range(5):
                 self.servo (140)
 
     ########################
