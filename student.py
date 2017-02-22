@@ -89,7 +89,7 @@ class GoPiggy(pigo.Pigo):
         print ('shimmy')
         for y in range(3):
             for x in range(150,250,50):
-            self.set_speed(x,x)
+                self.set_speed(x,x)
             self.servo(40)
             self.encR(5)
             self.servo(140)
