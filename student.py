@@ -61,23 +61,34 @@ class GoPiggy(pigo.Pigo):
         menu.get(ans, [None, error])[1]()
 
     def sweep(self):
-        for x in range(20,160,2):
-            self.servo(x)
-            if self.dist() < 30:
-                print("AHHHH")
-                break
+        for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
+            self.scan[x] = self.dist()
+        print("Here's what I saw: ")
+
+    def safety_dance(self):
+        for y in range(3):
+            for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
+                self.servo(x)
+                if self.dist() < 30:
+                    print("AHHHH")
+                    return
+            self.encR(7)
+        self.dance()
+
 
         #YOU DECIDE: How does your GoPiggy dance?
     def dance(self):
         print("Piggy dance")
         ##### WRITE YOUR FIRST PROJECT HERE
-        #self.shimmy()
-        #self.chacha()
+        self.shimmy()
+        self.chacha()
         self.sprinkler()
 
     def shimmy(self):
         print ('shimmy')
-        for x in range(3):
+        for y in range(3):
+            for x in range(150,250,50):
+            self.set_speed(x,x)
             self.servo(40)
             self.encR(5)
             self.servo(140)
@@ -90,7 +101,6 @@ class GoPiggy(pigo.Pigo):
     def chacha(self):
         print ('chacha')
         for x in range(2):
-            self.set_speed(150, 150)
             self.servo(0)
             self.servo(45)
             self.encR(20)
@@ -118,8 +128,8 @@ class GoPiggy(pigo.Pigo):
     def sprinkler(self):
         print ('sprinkler')
         for x in range(160,20,15):
-            self.servo(160)
-            self.servo(20)
+            self.servo(x)
+
 
     ########################
     ### MAIN LOGIC LOOP - the core algorithm of my navigation
