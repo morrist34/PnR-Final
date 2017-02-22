@@ -125,7 +125,7 @@ class Pigo(object):
     def dist(self):
         measurement = us_dist(15)
         time.sleep(.05)
-        print('I can see something' + str(measurement) + "cm away")
+        print('I can see something ' + str(measurement) + "cm away")
         return measurement
 
     # DUMP ALL VALUES IN THE SCAN ARRAY
