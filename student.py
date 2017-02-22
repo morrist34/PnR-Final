@@ -48,6 +48,7 @@ class GoPiggy(pigo.Pigo):
         menu = {"n": ("Navigate forward", self.nav),
                 "d": ("Dance", self.dance),
                 "c": ("Calibrate", self.calibrate),
+                "w": ("Sweep", self.sweep),
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit)
                 }
@@ -59,7 +60,14 @@ class GoPiggy(pigo.Pigo):
         # activate the item selected
         menu.get(ans, [None, error])[1]()
 
-    #YOU DECIDE: How does your GoPiggy dance?
+    def sweep(self):
+        for x in range(20,160,2):
+            self.servo(x)
+            if self.dist() < 30:
+                print("AHHHH")
+                break
+
+        #YOU DECIDE: How does your GoPiggy dance?
     def dance(self):
         print("Piggy dance")
         ##### WRITE YOUR FIRST PROJECT HERE
