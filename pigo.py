@@ -88,8 +88,6 @@ class Pigo(object):
     def set_speed(self, left, right):
         set_left_speed(left)
         set_right_speed(right)
-        self.LEFT_SPEED = left
-        self.RIGHT_SPEED = right
         print('Left speed set to: '+str(left)+' // Right set to: '+str(right))
     
     def encF(self, enc):
