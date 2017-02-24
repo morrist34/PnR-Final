@@ -75,10 +75,12 @@ class GoPiggy(pigo.Pigo):
 
     def restore_heading(self):
         print("Now I'll turn back to the starting position.")
+        self.set_speed(90,90)
         if self.turn_track > 0:
             self.encL(abs(self.turn_track))
         elif self.turn_track < 0:
             self.encR(abs(self.turn_track))
+        self.set_speed(self.LEFT_SPEED, self.RIGHT_SPEED)
 
     def sweep(self):
         for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
