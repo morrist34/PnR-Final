@@ -50,6 +50,7 @@ class GoPiggy(pigo.Pigo):
                 "c": ("Calibrate", self.calibrate),
                 "o": ("Count Obstacles", self.count_obstacles),
                 "t": ("Turn Test", self.turn_test),
+                "a": ("Count all obstacles", self.count_all_obstacles),
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit)
                 }
@@ -60,6 +61,15 @@ class GoPiggy(pigo.Pigo):
         ans = raw_input("Your selection: ")
         # activate the item selected
         menu.get(ans, [None, error])[1]()
+
+    def count_all_obstacles(self):
+        big_counter = 0
+        big_counter += self.count_obstacles()
+        for x in range(4):
+            self.encR(8)
+            big_counter += self.count_obstacles()
+        print('Total obstacles' + str(big_counter))
+        return big_counter
 
     def count_obstacles(self):
         # run a scan
