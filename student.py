@@ -48,6 +48,7 @@ class GoPiggy(pigo.Pigo):
         menu = {"n": ("Navigate forward", self.nav),
                 "d": ("Dance", self.dance),
                 "c": ("Calibrate", self.calibrate),
+                "o": ("Count Obstacles", self.count_obstacles),
                 "t": ("Turn Test", self.turn_test),
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit)
