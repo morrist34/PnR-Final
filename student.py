@@ -66,7 +66,7 @@ class GoPiggy(pigo.Pigo):
         big_counter = 0
         big_counter += self.count_obstacles()
         for x in range(4):
-            self.encR(8)
+            self.encR(9)
             big_counter += self.count_obstacles()
         print('Total obstacles' + str(big_counter))
         return big_counter
