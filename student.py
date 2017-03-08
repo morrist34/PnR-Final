@@ -207,20 +207,20 @@ class GoPiggy(pigo.Pigo):
         print("[ Press CTRL + C to stop me, then run stop.py ]\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         # this is the loop part of the "main logic loop"
-        if self.is_clear():
-            self.cuise()
+        count = 0
+        while True:
+            while self.is_clear():
+                self.encF(10)
+                count += 1
+                if count > 5 and self.turn_track != 0:
+                    self.restore_heading()
+                    count = 0
         answer = self.choose_path()
         if answer == "left":
             self.encL(6)
         elif answer == "right":
             self.encR(6)
-
-    def cruise(self):
-        self.fwd()
-        while self.is_clear():
-            time.sleep(.1)
-        self.stop()
-        self.encB(3)
+#see if i can use count_obstacles to nav easier
 
     def encR(self, enc):
         pigo.Pigo.encR(self, enc)
