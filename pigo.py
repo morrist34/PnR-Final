@@ -89,6 +89,9 @@ class Pigo(object):
         set_left_speed(left)
         set_right_speed(right)
         print('Left speed set to: '+str(left)+' // Right set to: '+str(right))
+
+    def fwd(self):
+        fwd()
     
     def encF(self, enc):
         print('Moving '+str((enc/18))+' rotation(s) forward')
