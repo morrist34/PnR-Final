@@ -220,7 +220,23 @@ class GoPiggy(pigo.Pigo):
             self.encL(6)
         elif answer == "right":
             self.encR(6)
+
+        while self.is_clear():
+            self.encF(10)
+        self.restore_heading()
+        answer = self.choose_path()
+        if answer == "left":
+            self.encL(6)
+        elif answer == "right":
+            self.encR(6)
 #see if i can use count_obstacles to nav easier
+
+    def sweep(self):
+        for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
+            self.servo(x)
+            self.scan[x] = self.dist()
+        print("Here's what I saw")
+        print(self.scan)
 
     def encR(self, enc):
         pigo.Pigo.encR(self, enc)
