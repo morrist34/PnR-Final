@@ -201,6 +201,23 @@ class GoPiggy(pigo.Pigo):
     ### MAIN LOGIC LOOP - the core algorithm of my navigation
     ### (kind of a big deal)
     ########################
+    def final(self):
+ # this is the loop part of the "main logic loop"
+        while True:
+            if self.is_clear():
+                self.cruise()
+            answer = self.choose_path()
+            if answer == "left":
+                self.encL(6)
+            elif answer == "right":
+                self.encR(6)
+
+    def cruise(self):
+        self.fwd()  # I added this to pigo
+        while self.is_clear():
+            time.sleep(.1)
+        self.stop()
+        self.encB(3)
 
     def nav(self):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
@@ -208,27 +225,6 @@ class GoPiggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         # this is the loop part of the "main logic loop"
         count = 0
-        while True:
-            while self.is_clear():
-                self.encF(10)
-                count += 1
-                if count > 5 and self.turn_track != 0:
-                    self.restore_heading()
-                    count = 0
-        answer = self.choose_path()
-        if answer == "left":
-            self.encL(6)
-        elif answer == "right":
-            self.encR(6)
-
-        while self.is_clear():
-            self.encF(10)
-        self.restore_heading()
-        answer = self.choose_path()
-        if answer == "left":
-            self.encL(6)
-        elif answer == "right":
-            self.encR(6)
 #see if i can use count_obstacles to nav easier
 
     def sweep(self):
