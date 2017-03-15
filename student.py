@@ -45,7 +45,7 @@ class GoPiggy(pigo.Pigo):
     def menu(self):
         ## This is a DICTIONARY, it's a list with custom index values
         # You may change the menu if you'd like to add an experimental method
-        menu = {"n": ("Navigate forward", self.nav),
+        menu = {"n": ("Navigate forward", self.final),
                 "d": ("Dance", self.dance),
                 "c": ("Calibrate", self.calibrate),
                 "o": ("Count Obstacles", self.count_obstacles),
@@ -201,6 +201,7 @@ class GoPiggy(pigo.Pigo):
     ### MAIN LOGIC LOOP - the core algorithm of my navigation
     ### (kind of a big deal)
     ########################
+    '''
     def nav(self):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("[ Press CTRL + C to stop me, then run stop.py ]\n")
@@ -208,6 +209,7 @@ class GoPiggy(pigo.Pigo):
         # this is the loop part of the "main logic loop"
         count = 0
         # see if i can use count_obstacles to nav easier
+        '''
 
     def final(self):
         while True:
