@@ -135,7 +135,7 @@ class GoPiggy(pigo.Pigo):
         for y in range(3):
             for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
                 self.servo(x)
-                if self.dist() < 30:
+                if self.dist() < self.STOP_DIST:
                     print("AHHHH")
                     return
             self.encR(7)
@@ -201,8 +201,8 @@ class GoPiggy(pigo.Pigo):
     ### MAIN LOGIC LOOP - the core algorithm of my navigation
     ### (kind of a big deal)
     ########################
+    #
     def final(self):
- # this is the loop part of the "main logic loop"
         while True:
             if self.is_clear():
                 self.cruise()
@@ -213,9 +213,10 @@ class GoPiggy(pigo.Pigo):
                 self.encR(6)
 
     def cruise(self):
-        self.fwd()  # I added this to pigo
-        while self.is_clear():
-            time.sleep(.1)
+        self.servo(self.MIDPOINT)
+        self.fwd()
+        while self.dist() > self.STOP_DIST:
+            time.sleep(.01)
         self.stop()
         self.encB(3)
 
@@ -225,7 +226,7 @@ class GoPiggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         # this is the loop part of the "main logic loop"
         count = 0
-#see if i can use count_obstacles to nav easier
+        #see if i can use count_obstacles to nav easier
 
     def sweep(self):
         for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
