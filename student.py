@@ -201,7 +201,14 @@ class GoPiggy(pigo.Pigo):
     ### MAIN LOGIC LOOP - the core algorithm of my navigation
     ### (kind of a big deal)
     ########################
-    #
+    def nav(self):
+        print("-----------! NAVIGATION ACTIVATED !------------\n")
+        print("[ Press CTRL + C to stop me, then run stop.py ]\n")
+        print("-----------! NAVIGATION ACTIVATED !------------\n")
+        # this is the loop part of the "main logic loop"
+        count = 0
+        # see if i can use count_obstacles to nav easier
+
     def final(self):
         while True:
             if self.is_clear():
