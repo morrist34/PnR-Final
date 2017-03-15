@@ -217,9 +217,9 @@ class GoPiggy(pigo.Pigo):
                 self.cruise()
             answer = self.choose_path()
             if answer == "left":
-                self.encL(6)
+                self.encL(4)
             elif answer == "right":
-                self.encR(6)
+                self.encR(4)
 
     def cruise(self):
         self.servo(self.MIDPOINT)
@@ -228,14 +228,6 @@ class GoPiggy(pigo.Pigo):
             time.sleep(.01)
         self.stop()
         self.encB(3)
-
-    def nav(self):
-        print("-----------! NAVIGATION ACTIVATED !------------\n")
-        print("[ Press CTRL + C to stop me, then run stop.py ]\n")
-        print("-----------! NAVIGATION ACTIVATED !------------\n")
-        # this is the loop part of the "main logic loop"
-        count = 0
-        #see if i can use count_obstacles to nav easier
 
     def sweep(self):
         for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
