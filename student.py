@@ -221,14 +221,13 @@ class GoPiggy(pigo.Pigo):
             elif answer == "right":
                 self.encR(4)
 
-#i changed the time.sleep time so that the robot will not jerk back as violently and maybe improving the accuracy of the next motion
     def cruise(self):
         self.servo(self.MIDPOINT)
         self.fwd()
         while self.dist() > self.STOP_DIST:
             time.sleep(.15)
         self.stop()
-        self.encB(4)
+        self.encB(3)
 
     def sweep(self):
         for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
