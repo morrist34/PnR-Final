@@ -124,13 +124,13 @@ class GoPiggy(pigo.Pigo):
         elif self.turn_track < 0:
             self.encR(abs(self.turn_track))
         self.set_speed(self.LEFT_SPEED, self.RIGHT_SPEED)
-
+        '''
     def sweep(self):
         for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
             self.servo(x)
             self.scan[x] = self.dist()
         print("Here's what I saw: ")
-
+        '''
     def safety_dance(self):
         for y in range(3):
             for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
@@ -163,7 +163,7 @@ class GoPiggy(pigo.Pigo):
             self.encR(5)
             self.servo(40)
             self.encL(5)
-
+    #example of unorganized code that should have been put in a loop
     def chacha(self):
         print('chacha')
         for x in range(2):
@@ -190,7 +190,7 @@ class GoPiggy(pigo.Pigo):
             self.servo(30)
             self.encR(20)
             self.servo(30)
-
+    #example of organized code that is easy to follow
     def sprinkler(self):
         print('sprinkler')
         for x in range(160,20,15):
@@ -221,13 +221,14 @@ class GoPiggy(pigo.Pigo):
             elif answer == "right":
                 self.encR(4)
 
+#i changed the time.sleep time so that the robot will not jerk back as violently and maybe improving the accuracy of the next motion
     def cruise(self):
         self.servo(self.MIDPOINT)
         self.fwd()
         while self.dist() > self.STOP_DIST:
-            time.sleep(.01)
+            time.sleep(.15)
         self.stop()
-        self.encB(3)
+        self.encB(4)
 
     def sweep(self):
         for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
