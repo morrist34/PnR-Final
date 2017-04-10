@@ -220,6 +220,7 @@ class GoPiggy(pigo.Pigo):
                 self.encL(4)
             elif answer == "right":
                 self.encR(4)
+        return self.cruise()
 
     def cruise(self):
         self.servo(self.MIDPOINT)
