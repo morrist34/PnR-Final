@@ -210,7 +210,7 @@ class GoPiggy(pigo.Pigo):
         count = 0
         # see if i can use count_obstacles to nav easier
         '''
-    #i am trying to figure out how to tell my robot to choose the best path that it finds as opposed to traveling down the first path that it sees
+
     def final(self):
         while True:
             if self.is_clear():
@@ -218,8 +218,12 @@ class GoPiggy(pigo.Pigo):
             answer = self.choose_path()
             if answer == "left":
                 self.encL(4)
+                self.wide_scan()
+                self.cruise()
             elif answer == "right":
                 self.encR(4)
+                self.wide_scan()
+                self.cruise()
 
     def cruise(self):
         self.servo(self.MIDPOINT)
