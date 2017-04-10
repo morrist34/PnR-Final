@@ -230,11 +230,14 @@ class GoPiggy(pigo.Pigo):
             time.sleep(.15)
         self.stop()
         self.encB(3)
+        self.sweep()
 
     def sweep(self):
         for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
             self.servo(x)
             self.scan[x] = self.dist()
+            if self.dist < 5:
+                self.encB(5)
         print("Here's what I saw")
         print(self.scan)
 
