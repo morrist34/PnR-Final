@@ -218,11 +218,9 @@ class GoPiggy(pigo.Pigo):
             answer = self.choose_path()
             if answer == "left":
                 self.encL(4)
-                self.wide_scan()
                 self.cruise()
             elif answer == "right":
                 self.encR(4)
-                self.wide_scan()
                 self.cruise()
 
     def cruise(self):
