@@ -218,8 +218,10 @@ class GoPiggy(pigo.Pigo):
             answer = self.choose_path()
             if answer == "left":
                 self.encL(4)
+                self.fwd()
             elif answer == "right":
                 self.encR(4)
+                self.fwd()
 
     def cruise(self):
         self.servo(self.MIDPOINT)
