@@ -220,7 +220,6 @@ class GoPiggy(pigo.Pigo):
                 self.encL(4)
             elif answer == "right":
                 self.encR(4)
-        return self.sweep()
 
     def cruise(self):
         self.servo(self.MIDPOINT)
@@ -229,7 +228,6 @@ class GoPiggy(pigo.Pigo):
             time.sleep(.15)
         self.stop()
         self.encB(3)
-        self.sweep()
 
     def sweep(self):
         for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
