@@ -228,7 +228,7 @@ class GoPiggy(pigo.Pigo):
         self.is_clear()
         self.fwd()
         while self.dist() > self.STOP_DIST:
-            time.sleep(.15)
+            time.sleep(.16)
         self.stop()
         self.encB(3)
 
