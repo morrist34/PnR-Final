@@ -215,7 +215,6 @@ class GoPiggy(pigo.Pigo):
         while True:
             if self.is_clear():
                 self.cruise()
-            while self.is_clear == False:
                 self.wide_scan()
             answer = self.choose_path()
             if answer == "left":
