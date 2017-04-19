@@ -225,7 +225,7 @@ class GoPiggy(pigo.Pigo):
                 self.fwd()
 
     def cruise(self):
-        self.sweep()
+        self.is_clear()
         self.fwd()
         while self.dist() > self.STOP_DIST:
             time.sleep(.15)
