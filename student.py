@@ -220,7 +220,7 @@ class GoPiggy(pigo.Pigo):
         self.fwd()
         self.is_clear()
         while self.dist() > self.STOP_DIST:
-            time.sleep(.16)
+            time.sleep(.01)
         self.stop()
         self.encB(3)
         answer = self.choose_path()
@@ -229,13 +229,13 @@ class GoPiggy(pigo.Pigo):
             self.fwd()
             self.is_clear()
             while self.dist() > self.STOP_DIST:
-                time.sleep(.16)
+                time.sleep(.01)
         elif answer == "right":
             self.encR(5)
             self.fwd()
             self.is_clear()
             while self.dist() > self.STOP_DIST:
-                time.sleep(.16)
+                time.sleep(.01)
 
 
     def sweep(self):
