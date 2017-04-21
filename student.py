@@ -223,7 +223,6 @@ class GoPiggy(pigo.Pigo):
             time.sleep(.16)
         return self.stop()
         self.encB(3)
-        self.sweep()
         answer = self.choose_path()
         if answer == "left":
             self.encL(4)
