@@ -221,7 +221,7 @@ class GoPiggy(pigo.Pigo):
         self.is_clear()
         while self.dist() > self.STOP_DIST:
             time.sleep(.16)
-        return self.stop()
+        self.stop()
         self.encB(3)
         answer = self.choose_path()
         if answer == "left":

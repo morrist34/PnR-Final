@@ -158,7 +158,7 @@ class Pigo(object):
         print("Running the is_clear method.")
         for x in range((self.MIDPOINT - 20), (self.MIDPOINT + 20), 7):
             servo(x)
-            time.sleep(.1)
+            time.sleep(.05)
             scan1 = us_dist(15)
             time.sleep(.1)
             # double check the distance
