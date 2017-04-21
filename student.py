@@ -225,11 +225,18 @@ class GoPiggy(pigo.Pigo):
         self.encB(3)
         answer = self.choose_path()
         if answer == "left":
-            self.encL(4)
+            self.encL(5)
             self.fwd()
+            self.is_clear()
+            while self.dist() > self.STOP_DIST:
+                time.sleep(.16)
         elif answer == "right":
-            self.encR(4)
+            self.encR(5)
             self.fwd()
+            self.is_clear()
+            while self.dist() > self.STOP_DIST:
+                time.sleep(.16)
+
 
     def sweep(self):
         for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
