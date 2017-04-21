@@ -215,13 +215,6 @@ class GoPiggy(pigo.Pigo):
         while True:
             if self.is_clear():
                 self.cruise()
-            answer = self.choose_path()
-            if answer == "left":
-                self.encL(4)
-                self.fwd()
-            elif answer == "right":
-                self.encR(4)
-                self.fwd()
 
     def cruise(self):
         self.fwd()
@@ -230,6 +223,13 @@ class GoPiggy(pigo.Pigo):
         self.stop()
         self.encB(3)
         self.sweep()
+        answer = self.choose_path()
+        if answer == "left":
+            self.encL(4)
+            self.fwd()
+        elif answer == "right":
+            self.encR(4)
+            self.fwd()
 
     def sweep(self):
         for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
