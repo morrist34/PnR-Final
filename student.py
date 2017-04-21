@@ -224,12 +224,12 @@ class GoPiggy(pigo.Pigo):
                 self.fwd()
 
     def cruise(self):
-        self.is_clear()
         self.fwd()
         while self.dist() > self.STOP_DIST:
             time.sleep(.16)
         self.stop()
         self.encB(3)
+        self.sweep()
 
     def sweep(self):
         for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
