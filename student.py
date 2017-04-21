@@ -218,9 +218,10 @@ class GoPiggy(pigo.Pigo):
 
     def cruise(self):
         self.fwd()
+        self.is_clear()
         while self.dist() > self.STOP_DIST:
             time.sleep(.16)
-        self.stop()
+        return self.stop()
         self.encB(3)
         self.sweep()
         answer = self.choose_path()
