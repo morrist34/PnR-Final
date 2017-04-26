@@ -217,7 +217,7 @@ class GoPiggy(pigo.Pigo):
                 self.cruise()
 
     def cruise(self):
-        self.encF()
+        self.fwd()
         self.is_clear()
         while self.dist() > self.STOP_DIST:
             time.sleep(.01)
@@ -226,13 +226,13 @@ class GoPiggy(pigo.Pigo):
         answer = self.choose_path()
         if answer == "left":
             self.encL(5)
-            self.encF()
+            self.fwd()
             self.is_clear()
             while self.dist() > self.STOP_DIST:
                 time.sleep(.01)
         elif answer == "right":
             self.encR(5)
-            self.encF()
+            self.fwd()
             self.is_clear()
             while self.dist() > self.STOP_DIST:
                 time.sleep(.01)
