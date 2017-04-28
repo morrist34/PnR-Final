@@ -227,7 +227,7 @@ class GoPiggy(pigo.Pigo):
         self.encB(3)
 
     def turn_think(self):
-        time.stop(.01)
+        self.stop()
         self.encB(3)
         answer = self.choose_path()
         if answer == "left":
