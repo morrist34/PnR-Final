@@ -207,7 +207,6 @@ class Pigo(object):
             stop()
         servo(self.MIDPOINT)
         time.sleep(0.05)
-        disable_servo()
 
     def calibrate(self):
         print("Calibrating...")
