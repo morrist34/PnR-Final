@@ -227,11 +227,11 @@ class GoPiggy(pigo.Pigo):
         self.encB(3)
 
     def turn_think(self):
-        answer = self.choose_path()
         while self.dist() > self.STOP_DIST:
             time.sleep(.01)
         self.stop()
         self.encB(3)
+        answer = self.choose_path()
         if answer == "left":
             self.encL(5)
             self.fwd()
