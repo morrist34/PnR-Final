@@ -217,7 +217,7 @@ class GoPiggy(pigo.Pigo):
                 self.cruise()
             else:
                 self.turn_think()
-
+# should i use an elif or an else method above
     def cruise(self):
         self.fwd()
         self.is_clear()
