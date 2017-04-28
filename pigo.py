@@ -124,7 +124,7 @@ class Pigo(object):
         time.sleep(.1)
 
     def dist(self):
-        measurement = us_dist(15)
+        measurement = us_dist(12)
         time.sleep(.05)
         print('I can see something ' + str(measurement) + "cm away")
         return measurement
