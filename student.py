@@ -217,7 +217,7 @@ class GoPiggy(pigo.Pigo):
                 self.cruise()
             else:
                 self.turn_think()
-# should i use an elif or an else method above
+
     def cruise(self):
         self.fwd()
         self.is_clear()
@@ -231,9 +231,11 @@ class GoPiggy(pigo.Pigo):
         if answer == "left":
             self.encL(5)
             self.fwd()
+            self.final()
         elif answer == "right":
             self.encR(5)
             self.fwd()
+            self.final()
 
     def sweep(self):
         for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
