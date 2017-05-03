@@ -226,14 +226,12 @@ class GoPiggy(pigo.Pigo):
         self.encB(3)
 
     def turn_think(self):
+        self.stop
         answer = self.choose_path()
         if answer == "left":
             self.encL(5)
-            self.fwd()
         elif answer == "right":
             self.encR(5)
-            self.fwd()
-
 
     def sweep(self):
         for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
