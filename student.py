@@ -220,7 +220,6 @@ class GoPiggy(pigo.Pigo):
 
     def cruise(self):
         self.fwd()
-        self.is_clear()
         while self.dist() > self.STOP_DIST:
             time.sleep(.01)
         self.stop()
@@ -231,20 +230,18 @@ class GoPiggy(pigo.Pigo):
         if answer == "left":
             self.encL(5)
             self.fwd()
-            self.final()
         elif answer == "right":
             self.encR(5)
             self.fwd()
-            self.final()
 
-    '''
+
     def sweep(self):
         for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
             self.servo(x)
             self.scan[x] = self.dist()
         print("Here's what I saw")
         print(self.scan)
-        '''
+
 
     def encR(self, enc):
         pigo.Pigo.encR(self, enc)
