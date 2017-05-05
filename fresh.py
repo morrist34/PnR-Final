@@ -155,7 +155,7 @@ class Fresh:
         stop()
 
 
-        try:
-            f = Fresh()
-        except (KeyboardInterrupt, SystemExit):
-            stop()
+try:
+    f = Fresh()
+except (KeyboardInterrupt, SystemExit):
+    stop()
