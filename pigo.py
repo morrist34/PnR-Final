@@ -180,6 +180,7 @@ class Pigo(object):
     # DECIDE WHICH WAY TO TURN
     def choose_path(self):
         print('Considering options...')
+        self.stop()
         if self.is_clear():
             return "fwd"
         else:
@@ -203,10 +204,7 @@ class Pigo(object):
 
     def stop(self):
         print('All stop.')
-        for x in range(3):
-            stop()
-        servo(self.MIDPOINT)
-        time.sleep(0.05)
+        stop()
 
     def calibrate(self):
         print("Calibrating...")

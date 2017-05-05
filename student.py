@@ -231,6 +231,7 @@ class GoPiggy(pigo.Pigo):
         self.encB(3)
 
     def turn_think(self):
+        print("\n starting turn think \n")
         self.stop()
         answer = self.choose_path()
         if answer == "left":
