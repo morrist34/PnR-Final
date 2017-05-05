@@ -152,7 +152,8 @@ class Fresh:
 
     def stop(self):
         print('All stop.')
-        stop()
+        for x in range(5):
+            stop()
 
 
 try:
