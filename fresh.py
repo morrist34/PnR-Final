@@ -1,7 +1,7 @@
 from gopigo import*
 import time
 
-class fresh:
+class Fresh:
     def __init__(self):
         print("\n ----This better work!\n")
         # Our servo turns the sensor. What angle of the servo( ) method sets it straight?
@@ -156,6 +156,6 @@ class fresh:
 
 
         try:
-            f=Fresh()
+            f = Fresh()
         except (KeyboardInterrupt, SystemExit):
             stop()
