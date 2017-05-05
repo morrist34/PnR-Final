@@ -213,7 +213,7 @@ class GoPiggy(pigo.Pigo):
 
     def final(self):
         while True:
-            if self.is_clear():
+            if self.choose_path():
                 self.cruise()
             else:
                 self.turn_think()
