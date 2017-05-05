@@ -21,24 +21,24 @@ class Fresh:
 
     def nav(self):
         print("\n --------STARTING NAVIGATION \n")
-        if self.is_clear():
-            print("Looks clear, going forward")
-            fwd()
-            while self.dist() > self.STOP_DIST:
-                time.sleep(.2)
+        while True:
             self.stop()
-            answer= self.choose_path()
+            if self.is_clear():
+                print("Looks clear, going forward")
+                fwd()
+                while self.dist() > self.STOP_DIST:
+                    time.sleep(.2)
+                self.stop()
+            answer = self.choose_path()
             if answer == "left":
                 self.encL(5)
             else:
                 self.encR(5)
+
     def set_speed(self, left, right):
         set_left_speed(left)
         set_right_speed(right)
         print('Left speed set to: ' + str(left) + ' // Right set to: ' + str(right))
-
-    def fwd(self):
-        fwd()
 
     def encF(self, enc):
         print('Moving ' + str((enc / 18)) + ' rotation(s) forward')
@@ -85,6 +85,7 @@ class Fresh:
     def wide_scan(self):
         # dump all values
         self.flush_scan()
+        self.stop()
         for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, +2):
             servo(x)
             time.sleep(.1)
@@ -103,6 +104,7 @@ class Fresh:
             time.sleep(.01)
 
     def is_clear(self):
+        self.stop()
         print("Running the is_clear method.")
         for x in range((self.MIDPOINT - 20), (self.MIDPOINT + 20), 7):
             servo(x)
