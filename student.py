@@ -215,8 +215,8 @@ class GoPiggy(pigo.Pigo):
         while True:
             if self.is_clear():
                 self.cruise()
-            else:
-                self.turn_think()
+            self.stop()
+            self.turn_think()
 
     def cruise(self):
         self.fwd()
