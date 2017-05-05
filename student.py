@@ -220,7 +220,6 @@ class GoPiggy(pigo.Pigo):
         while True:
             if self.is_clear():
                 self.cruise()
-            input("Cruise has now closed. Press enter to proceed.")
             self.stop()
             self.turn_think()
 
@@ -230,10 +229,8 @@ class GoPiggy(pigo.Pigo):
             time.sleep(.01)
         self.stop()
         self.encB(3)
-        input("Cruise has now ended. Press enter to proceed.")
 
     def turn_think(self):
-        input("Turn think is about to begin. Press enter to proceed.")
         self.stop()
         answer = self.choose_path()
         if answer == "left":
