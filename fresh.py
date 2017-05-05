@@ -26,7 +26,7 @@ class Fresh:
             if self.is_clear():
                 print("Looks clear, going forward")
                 fwd()
-                while self.dist() > self.STOP_DIST:
+                while self.safe_driving():
                     time.sleep(.2)
                 self.stop()
             answer = self.choose_path()
@@ -34,6 +34,14 @@ class Fresh:
                 self.encL(5)
             else:
                 self.encR(5)
+
+    def safe_driving(self):
+        if self.dist() > self.STOP_DIST:
+            return True
+        else:
+            if self.dist() > self.STOP_DIST:
+                return True
+            return False
 
     def set_speed(self, left, right):
         set_left_speed(left)
