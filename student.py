@@ -1,3 +1,4 @@
+from gopigo import *
 import pigo
 import time
 import random
@@ -61,6 +62,10 @@ class GoPiggy(pigo.Pigo):
         ans = raw_input("Your selection: ")
         # activate the item selected
         menu.get(ans, [None, error])[1]()
+
+    def stop(self):
+        stop()
+
 
     def count_all_obstacles(self):
         big_counter = 0
