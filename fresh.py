@@ -21,12 +21,15 @@ class Fresh:
 
     def nav(self):
         print("\n --------STARTING NAVIGATION \n")
+        counter = 0
         while True:
             self.stop()
-            self.restore_heading()
+            if counter == 3:
+                self.restore_heading()
+                counter = 0
             if self.is_clear():
                 print("Looks clear, going forward")
-                fwd()
+                self.fwd()
                 while self.safe_driving():
                     time.sleep(.2)
                 self.stop()
@@ -174,7 +177,7 @@ class Fresh:
         print('All stop.')
         for x in range(5):
             stop()
-
+            time.sleep(.01)
 
 try:
     f = Fresh()
