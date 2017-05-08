@@ -29,7 +29,7 @@ class Fresh:
                 counter = 0
             if self.is_clear():
                 print("Looks clear, going forward")
-                self.fwd()
+                fwd()
                 while self.safe_driving():
                     time.sleep(.2)
                 self.stop()
