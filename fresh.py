@@ -23,13 +23,13 @@ class Fresh:
         print("\n --------STARTING NAVIGATION \n")
         while True:
             self.stop()
+            self.restore_heading()
             if self.is_clear():
                 print("Looks clear, going forward")
                 fwd()
                 while self.safe_driving():
                     time.sleep(.2)
                 self.stop()
-                self.restore_heading()
             answer = self.choose_path()
             if answer == "left":
                 self.encL(5)
