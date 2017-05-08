@@ -20,20 +20,17 @@ class Fresh:
         self.nav()
 
     def nav(self):
-        print("\n--------------Start Nav---------------\n")
-        counter = 0
+        print("\n --------STARTING NAVIGATION \n")
         while True:
-            if self.is_clear():
-                print("looks good, onwards")
-                fwd()
-                while self.dist() > self.STOP_DIST:
-                    time.sleep(.2)
             self.stop()
-            if counter == 4:
+            if self.is_clear():
+                print("Looks clear, going forward")
+                fwd()
+                while self.safe_driving():
+                    time.sleep(.2)
+                self.stop()
                 self.restore_heading()
-                counter = 0
             answer = self.choose_path()
-            counter += 1
             if answer == "left":
                 self.encL(5)
             else:
@@ -55,7 +52,6 @@ class Fresh:
         elif self.turn_track < 0:
             self.encR(abs(self.turn_track))
         self.set_speed(self.LEFT_SPEED, self.RIGHT_SPEED)
-
 
     def set_speed(self, left, right):
         set_left_speed(left)
