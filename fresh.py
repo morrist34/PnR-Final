@@ -188,7 +188,7 @@ class Fresh:
             return "left"
 
     def stop(self):
-        logging.debug("stop command received")
+        # logging.debug("stop command received")
         print('All stop.')
         for x in range(5):
             stop()
