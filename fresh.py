@@ -4,8 +4,8 @@ import logging
 
 class Fresh:
     def __init__(self):
-        LOG_LEVEL = logging.INFO
-        # LOG_LEVEL = logging.DEBUG
+        # LOG_LEVEL = logging.INFO
+        LOG_LEVEL = logging.DEBUG
         LOG_FILE = "/home/pi/PnR-Final/log_robot.log"
         LOG_FORMAT = "%(asctime)s %(levelname)s %(message)s"
         logging.basicConfig(filename=LOG_FILE, format=LOG_FORMAT, level=LOG_LEVEL)
@@ -112,7 +112,7 @@ class Fresh:
 
     # SEARCH 120 DEGREES COUNTING BY 2's
     def wide_scan(self):
-        # dump all values
+        logging.debug("starting wide scan")
         self.flush_scan()
         self.stop()
         for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, +2):
@@ -133,6 +133,7 @@ class Fresh:
             time.sleep(.01)
 
     def is_clear(self):
+        logging.debug("starting the is clear method")
         self.stop()
         print("Running the is_clear method.")
         for x in range((self.MIDPOINT - 20), (self.MIDPOINT + 20), 7):
@@ -158,6 +159,7 @@ class Fresh:
 
     # DECIDE WHICH WAY TO TURN
     def choose_path(self):
+        logging.debug("starting the choose path method")
         print('Considering options...')
         self.stop()
         if self.is_clear():
@@ -182,7 +184,7 @@ class Fresh:
             return "left"
 
     def stop(self):
-        logging.info("stop command received")
+        logging.debug("stop command received")
         print('All stop.')
         for x in range(5):
             stop()
