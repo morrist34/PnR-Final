@@ -1,8 +1,14 @@
 from gopigo import*
 import time
+import logging
 
 class Fresh:
     def __init__(self):
+        LOG_LEVEL = logging.INFO
+        # LOG_LEVEL = logging.DEBUG
+        LOG_FILE = "/home/pi/PnR-Final/log_robot.log"
+        LOG_FORMAT = "%(asctime)s %(levelname)s %(message)s"
+        logging.basicConfig(filename=LOG_FILE, format=LOG_FORMAT, level=LOG_LEVEL)
         print("\n ----This better work!\n")
         # Our servo turns the sensor. What angle of the servo( ) method sets it straight?
         self.MIDPOINT = 82
@@ -20,11 +26,13 @@ class Fresh:
         self.nav()
 
     def nav(self):
+        logging.debug("Starting the nav method")
         print("\n --------STARTING NAVIGATION \n")
         counter = 0
         while True:
             self.stop()
             if counter == 3:
+                logging.info("Restore heading, count at:" + str(count))
                 self.restore_heading()
                 counter = 0
             if self.is_clear():
@@ -174,6 +182,7 @@ class Fresh:
             return "left"
 
     def stop(self):
+        logging.info("stop command received")
         print('All stop.')
         for x in range(5):
             stop()
@@ -182,4 +191,8 @@ class Fresh:
 try:
     f = Fresh()
 except (KeyboardInterrupt, SystemExit):
+    from gopigo import*
     stop()
+except Exception as ee:
+    logging.error(ee.__str__())
+

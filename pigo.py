@@ -2,6 +2,7 @@
 
 from gopigo import *
 import time
+import logging
 
 ##########################################################
 #################### PIGO PARENT CLASS
@@ -197,6 +198,7 @@ class Pigo(object):
                 avgLeft += self.scan[x]
         avgLeft /= 60
         print('The average dist on the left is ' + str(avgLeft) + 'cm')
+        logging.info('The average dist on the left is ' + str(avgLeft) + 'cm')
         if avgRight > avgLeft:
             return "right"
         else:
