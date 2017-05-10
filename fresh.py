@@ -32,7 +32,7 @@ class Fresh:
         while True:
             self.stop()
             if counter == 3:
-                logging.info("Restore heading, count at:" + str(count))
+                logging.info("Restore heading, count at:" + str(counter))
                 self.restore_heading()
                 counter = 0
             if self.is_clear():
@@ -43,6 +43,7 @@ class Fresh:
                     time.sleep(.2)
                 self.stop()
             answer = self.choose_path()
+            counter += 1
             if answer == "left":
                 self.encL(5)
             else:
