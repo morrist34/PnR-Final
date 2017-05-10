@@ -37,6 +37,7 @@ class Fresh:
                 counter = 0
             if self.is_clear():
                 print("Looks clear, going forward")
+                logging.debug("going forward in nav")
                 fwd()
                 while self.safe_driving():
                     time.sleep(.2)
@@ -154,7 +155,9 @@ class Fresh:
             print("Degree: " + str(x) + ", distance: " + str(scan1))
             if scan1 < self.STOP_DIST:
                 print("Doesn't look clear to me")
+                logging.info("returning at the end of is clear with false")
                 return False
+        logging.info("looks clear my next move in is clear with true")
         return True
 
     # DECIDE WHICH WAY TO TURN
