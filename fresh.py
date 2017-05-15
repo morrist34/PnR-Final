@@ -15,9 +15,9 @@ class Fresh:
         # YOU DECIDE: How close can an object get (cm) before we have to stop?
         self.STOP_DIST = 40
         # YOU DECIDE: What left motor power helps straighten your fwd()?
-        self.LEFT_SPEED = 90
+        self.LEFT_SPEED = 100
         # YOU DECIDE: What left motor power helps straighten your fwd()?
-        self.RIGHT_SPEED = 95
+        self.RIGHT_SPEED = 100
         # This one isn't capitalized because it changes during runtime, the others don't
         self.turn_track = 0
         # Our scan list! The index will be the degree and it will store distance
@@ -41,6 +41,7 @@ class Fresh:
                 fwd()
                 while self.safe_driving():
                     time.sleep(.2)
+                self.stop()
             answer = self.choose_path()
             counter += 1
             if answer == "left":
@@ -58,7 +59,7 @@ class Fresh:
 
     def restore_heading(self):
         print("Now I'll turn back to the starting position.")
-        self.set_speed(90, 90)
+        # self.set_speed(90, 90)
         if self.turn_track > 0:
             self.encL(abs(self.turn_track))
         elif self.turn_track < 0:
@@ -115,7 +116,7 @@ class Fresh:
         logging.debug("starting wide scan")
         self.flush_scan()
         self.stop()
-        for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, +2):
+        for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, +4):
             servo(x)
             time.sleep(.1)
             scan1 = us_dist(15)
@@ -151,7 +152,7 @@ class Fresh:
                 scan1 = (scan1 + scan2 + scan3) / 3
             self.scan[x] = scan1
             print("Degree: " + str(x) + ", distance: " + str(scan1))
-            if scan1 < self.STOP_DIST:
+            if scan1 < self.STOP_DIST * 1.5:
                 print("Doesn't look clear to me")
                 logging.info("returning at the end of is clear with false")
                 return False
