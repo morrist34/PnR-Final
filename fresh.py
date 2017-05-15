@@ -30,7 +30,7 @@ class Fresh:
         print("\n --------STARTING NAVIGATION \n")
         counter = 0
         while True:
-            if counter == 3:
+            if counter == 2:
                 logging.info("Restore heading, count at:" + str(counter))
                 self.restore_heading()
                 counter = 0
