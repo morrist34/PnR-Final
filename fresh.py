@@ -11,9 +11,9 @@ class Fresh:
         logging.basicConfig(filename=LOG_FILE, format=LOG_FORMAT, level=LOG_LEVEL)
         print("\n ----This better work!\n")
         # Our servo turns the sensor. What angle of the servo( ) method sets it straight?
-        self.MIDPOINT = 82
+        self.MIDPOINT = 90
         # YOU DECIDE: How close can an object get (cm) before we have to stop?
-        self.STOP_DIST = 30
+        self.STOP_DIST = 40
         # YOU DECIDE: What left motor power helps straighten your fwd()?
         self.LEFT_SPEED = 90
         # YOU DECIDE: What left motor power helps straighten your fwd()?
@@ -23,7 +23,8 @@ class Fresh:
         # Our scan list! The index will be the degree and it will store distance
         self.scan = [None] * 180
         self.set_speed(self.LEFT_SPEED, self.RIGHT_SPEED)
-        self.nav()
+        if __name__ == "__main__":
+            self.nav()
 
     def nav(self):
         logging.debug("Starting the nav method")
