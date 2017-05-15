@@ -30,7 +30,6 @@ class Fresh:
         print("\n --------STARTING NAVIGATION \n")
         counter = 0
         while True:
-            self.stop()
             if counter == 3:
                 logging.info("Restore heading, count at:" + str(counter))
                 self.restore_heading()
@@ -41,7 +40,6 @@ class Fresh:
                 fwd()
                 while self.safe_driving():
                     time.sleep(.2)
-                self.stop()
             answer = self.choose_path()
             counter += 1
             if answer == "left":
@@ -64,7 +62,6 @@ class Fresh:
             self.encL(abs(self.turn_track))
         elif self.turn_track < 0:
             self.encR(abs(self.turn_track))
-        self.set_speed(self.LEFT_SPEED, self.RIGHT_SPEED)
 
     def set_speed(self, left, right):
         set_left_speed(left)
@@ -136,7 +133,6 @@ class Fresh:
 
     def is_clear(self):
         logging.debug("starting the is clear method")
-        self.stop()
         print("Running the is_clear method.")
         for x in range((self.MIDPOINT - 20), (self.MIDPOINT + 20), 7):
             servo(x)
@@ -165,7 +161,6 @@ class Fresh:
     def choose_path(self):
         logging.debug("starting the choose path method")
         print('Considering options...')
-        self.stop()
         if self.is_clear():
             return "fwd"
         else:
@@ -190,7 +185,7 @@ class Fresh:
     def stop(self):
         # logging.debug("stop command received")
         print('All stop.')
-        for x in range(5):
+        for x in range(3):
             stop()
             time.sleep(.01)
 
